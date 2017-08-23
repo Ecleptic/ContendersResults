@@ -1,5 +1,5 @@
 window.onload = () => {
-  const url = "http://45.79.7.100:8080/api/API"
+  const url = "https://nightmare-heroku-test1.herokuapp.com/api/API"
   let list = document.querySelector('.teamList')
   try {
     fetch(url)
