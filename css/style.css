@@ -7,6 +7,8 @@
 body {
     box-sizing: border-box;
     font-family: big_noodle_titling_oblique, BigNoodleTitling, serif, Arial;
+    text-align: center;
+    
 }
 
 
@@ -50,15 +52,18 @@ th {
 .team2>td {
     border-bottom: 10px solid black;
 }
+.score{
+    padding-right: 1em;
+}
 
 .matchDate {
-    font-size: 3em;
+    font-size: 3.5rem;
     font-style: bold;
 }
 
 .name,
 .score {
-    font-size: 3em;
+    font-size: 3.5rem;
 }
 
 .win {
