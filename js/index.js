@@ -1,29 +1,55 @@
 window.onload = () => {
   const url = "https://nightmare-heroku-test1.herokuapp.com/api/API"
-  let list = document.querySelector('.teamList')
+  let table = document.querySelector('.teamList')
   try {
-    fetch(url)
-      .then((response) => {
-        Promise.resolve(response.json()).then((res) => {
+    fetch(url).then((response) => {
+      Promise
+        .resolve(response.json())
+        .then((res) => {
           res = JSON.parse(res)
           for (i in res) {
-            console.log(list)
-            var ul = document.createElement('ul')
-            let li1 = document.createElement('li')
-            let li2 = document.createElement('li')
-            li1.innerHTML = res[i].Team1 + " " + res[i].Team1Score
-            li2.innerHTML = res[i].Team2 + " " + res[i].Team2Score
-            ul.innerText = "Match:"
-            ul.appendChild(li1)
-            ul.appendChild(li2)
-            list.appendChild(ul)
+            console.log(table)
+            let table1 = document.createElement('tr')
+            let table2 = document.createElement('tr')
+            let team1Name = document.createElement('td')
+            let team1Score = document.createElement('td')
+            let team2Name = document.createElement('td')
+            let team2Score = document.createElement('td')
+
+            team1Name.innerHTML = res[i].Team1
+            team1Score.innerHTML = res[i].Team1Score
+            team2Name.innerHTML = res[i].Team2
+            team2Score.innerHTML = res[i].Team2Score
+
+
+            if (res[i].Team2Score > res[i].Team1Score) {
+              console.log("team2Win")
+              team2Score.className += " win "
+            } else if (res[i].Team1Score > res[i].Team2Score) {
+              console.log("team1Win")
+              team1Score.className += " win "
+            }
+            
+            team1Score.className += " team1 score "
+            team2Score.className += " team2 score "
+            team1Name.className += " team1 name "
+            team2Name.className += " team2 name "
+            table1.className += " team1 "
+            table2.className += " team2 "
+
+            table1.appendChild(team1Name)
+            table1.appendChild(team1Score)
+            table2.appendChild(team2Name)
+            table2.appendChild(team2Score)
+
+            table.appendChild(table1)
+            table.appendChild(table2)
           }
         })
-      })
-      .catch((err) => {
-        console.log("Fetch Error:", err)
-      })
+    }).catch((err) => {
+      console.log("Fetch Error:", err)
+    })
   } catch (e) {
-    console.log("Couldn't use fetch")
+    console.log("Cotrdn't use fetch")
   }
 }
