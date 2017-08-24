@@ -15,7 +15,13 @@ window.onload = () => {
             let team1Score = document.createElement('td')
             let team2Name = document.createElement('td')
             let team2Score = document.createElement('td')
+            let matchDate = document.createElement('th')
+            let blankDate = document.createElement('th')
 
+
+            gameDateTime = res[i].gameDate + ",  " + res[i].matchTime
+
+            matchDate.innerHTML = gameDateTime
             team1Name.innerHTML = res[i].Team1
             team1Score.innerHTML = res[i].Team1Score
             team2Name.innerHTML = res[i].Team2
@@ -30,6 +36,9 @@ window.onload = () => {
               team1Score.className += " win "
             }
             
+            matchDate.className += " matchDate "
+            blankDate.className += " blankDate "
+            matchDate.className += " date "
             team1Score.className += " team1 score "
             team2Score.className += " team2 score "
             team1Name.className += " team1 name "
@@ -42,6 +51,8 @@ window.onload = () => {
             table2.appendChild(team2Name)
             table2.appendChild(team2Score)
 
+            table.appendChild(matchDate)
+            table.appendChild(blankDate)
             table.appendChild(table1)
             table.appendChild(table2)
           }

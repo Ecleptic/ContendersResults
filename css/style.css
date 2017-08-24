@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'big_noodle_titling_oblique';
+    src: url(assets/big_noodle_titling_oblique.ttf);
+    src: url(assets/big_noodle_titling.ttf);
+}
+
 body {
     box-sizing: border-box;
+    font-family: big_noodle_titling_oblique, BigNoodleTitling, serif, Arial;
 }
 
 
@@ -22,13 +29,36 @@ td {
     background: lightgrey;
 }
 
+th {
+    border-top: 1px solid black;
+    /*border-right: 1px solid black;*/
+    border-bottom: 1px solid black;
+    /*border-left: 1px solid black;*/
+    padding: 15px;
+    background: lightgrey;
+}
+
+.blankDate {
+    border-right: 1px solid black;
+}
+
+.matchDate {
+    border-left: 1px solid black;
+}
+
+.team2>th,
 .team2>td {
     border-bottom: 10px solid black;
 }
 
+.matchDate {
+    font-size: 3em;
+    font-style: bold;
+}
+
 .name,
 .score {
-    font-size: 3em
+    font-size: 3em;
 }
 
 .win {
