@@ -8,7 +8,7 @@ window.onload = () => {
         .then((res) => {
           res = JSON.parse(res)
           for (i in res) {
-            console.log(table)
+            // console.log(table)
             let table1 = document.createElement('tr')
             let table2 = document.createElement('tr')
             let team1Name = document.createElement('td')
