@@ -1,14 +1,15 @@
 window.onload = () => {
   const url = "https://nightmare-heroku-test1.herokuapp.com/api/API"
   let table = document.querySelector('.teamList')
+  let loadingWord = document.querySelector('.loading')
   try {
     fetch(url).then((response) => {
       Promise
         .resolve(response.json())
         .then((res) => {
           res = JSON.parse(res)
+          loadingWord.innerHTML = ""
           for (i in res) {
-            // console.log(table)
             let table1 = document.createElement('tr')
             let table2 = document.createElement('tr')
             let team1Name = document.createElement('td')
@@ -18,7 +19,6 @@ window.onload = () => {
             let matchDate = document.createElement('th')
             let blankDate = document.createElement('th')
 
-
             gameDateTime = res[i].gameDate + ",  " + res[i].matchTime
 
             matchDate.innerHTML = gameDateTime
@@ -27,7 +27,6 @@ window.onload = () => {
             team2Name.innerHTML = res[i].Team2
             team2Score.innerHTML = res[i].Team2Score
 
-
             if (res[i].Team2Score > res[i].Team1Score) {
               console.log("team2Win")
               team2Score.className += " win "
@@ -35,7 +34,7 @@ window.onload = () => {
               console.log("team1Win")
               team1Score.className += " win "
             }
-            
+
             matchDate.className += " matchDate "
             blankDate.className += " blankDate "
             matchDate.className += " date "
