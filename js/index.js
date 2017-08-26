@@ -27,10 +27,10 @@ window.onload = () => {
             team2Name.innerHTML = res[i].Team2
             team2Score.innerHTML = res[i].Team2Score
 
-            if (res[i].Team2Score > res[i].Team1Score) {
+            if (res[i].Team2Score > res[i].Team1Score && res[i].Team1Score + res[i].Team2Score >= 4) {
               console.log("team2Win")
               team2Score.className += " win "
-            } else if (res[i].Team1Score > res[i].Team2Score) {
+            } else if (res[i].Team1Score > res[i].Team2Score && res[i].Team1Score + res[i].Team2Score >= 4) {
               console.log("team1Win")
               team1Score.className += " win "
             }
